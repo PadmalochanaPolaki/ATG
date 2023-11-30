@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 100px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    
+    .form-group button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 3px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    
+    .form-group button:hover {
+      background-color: #45a049;
+    }
+    
+    .form-group .switch-form {
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .form-group .switch-form a {
+      color: #333;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+ 
+  <div class="container">
+    <form method="post"  action="/loginaction/" >
+      {% csrf_token %}
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="login-email">Username</label>
+        <input type="text" id="log" name="Username" required>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password:</label>
+        <input type="password" id="logpass" name="pwd" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">Login</button>
+      </div>
+      <div class="switch-form">
+        <p> <a href="/signup"> Forgot Password</a></p>
+      </div>
+      <div class="switch-form">
+        <p>Don't have an account? <a href="/signup">Sign up</a></p>
+      </div>
+    </form>
+    {% if msg %}
+    <p>{{ msg }}</p>
+     {% endif %}
+   
+     </div>
+   </body>
+   </html>
